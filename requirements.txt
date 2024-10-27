@@ -1,4 +1,4 @@
 python-telegram-bot==13.7
-telebot
+pyTelegramBotAPI
 python-dotenv
 gunicorn
