@@ -2,6 +2,9 @@ import telebot
 from telebot import types
 from urllib.parse import quote
 
+from dotenv import load_dotenv
+
+import os
 import threading
 import re
 
@@ -382,10 +385,13 @@ class BotManager:
 
 # Запуск бота
 if __name__ == '__main__':
-    TOKEN = '7448862042:AAEvAsZee2AzbzEwiW2Anw1DDoE4EU8044A'
-    ADMIN_PASSWORD = 'your_admin_password'
-    SUPERADMIN_PASSWORD = 'your_superadmin_password'
-    GROUP_CHAT_ID = '-4515658282' 
+
+    # Load environment variables
+    load_dotenv()
+    TOKEN = os.environ.get("TELEGRAM_API_KEY") #'7448862042:AAEvAsZee2AzbzEwiW2Anw1DDoE4EU8044A'
+    ADMIN_PASSWORD = os.environ.get("ADMIN_PASS") #'your_admin_password'
+    SUPERADMIN_PASSWORD = os.environ.get("SUPER_ADMIN_PASS") #'your_superadmin_password'
+    GROUP_CHAT_ID = os.environ.get("GROUP_CHAT_ID") #'-4515658282' 
     bot_manager = BotManager(TOKEN, ADMIN_PASSWORD, SUPERADMIN_PASSWORD, GROUP_CHAT_ID)
     bot_manager.run()
 
