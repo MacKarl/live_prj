@@ -65,7 +65,7 @@ class BotManager:
         if len(params) > 1 and params[1] in self.groups:
             group = params[1]
             self.subscribers[chat_id] = User(chat_id, [group, "news"])
-            self.bot.send_message(chat_id, f'Вы были добавлены в группу "{self.groups[group]}" Привет! Я бот Живых Проектов 🤖 \n\n Рад видеть тебя на нашем курса "Как создать свое медиа". Мне всегда можно писать с вопросами, а еще я буду присылать напоминания про наши еженедельные вебинары с экспертами курса 🔥')
+            self.bot.send_message(chat_id, f'Вы были добавлены в группу "{self.groups[group]}" \n\n Привет! Я бот Живых Проектов 🤖 \n\n Рад видеть тебя на нашем курса "Как создать свое медиа". Мне всегда можно писать с вопросами, а еще я буду присылать напоминания про наши еженедельные вебинары с экспертами курса 🔥')
         else:
             self.subscribers[chat_id] = User(chat_id, ["news"])
 
@@ -388,10 +388,10 @@ if __name__ == '__main__':
 
     # Load environment variables
     load_dotenv()
-    TOKEN = os.environ.get("TELEGRAM_API_KEY") #'7448862042:AAEvAsZee2AzbzEwiW2Anw1DDoE4EU8044A'
-    ADMIN_PASSWORD = os.environ.get("ADMIN_PASS") #'your_admin_password'
-    SUPERADMIN_PASSWORD = os.environ.get("SUPER_ADMIN_PASS") #'your_superadmin_password'
-    GROUP_CHAT_ID = os.environ.get("GROUP_CHAT_ID") #'-4515658282' 
+    TOKEN = telebot.TeleBot(os.getenv("TELEGRAM_API_KEY")) #'7448862042:AAEvAsZee2AzbzEwiW2Anw1DDoE4EU8044A'
+    ADMIN_PASSWORD = telebot.TeleBot(os.getenv("ADMIN_PASS")) #'your_admin_password'
+    SUPERADMIN_PASSWORD = telebot.TeleBot(os.getenv("SUPER_ADMIN_PASS")) #'your_superadmin_password'
+    GROUP_CHAT_ID = telebot.TeleBot(os.getenv("GROUP_CHAT_ID")) #'-4515658282' 
     bot_manager = BotManager(TOKEN, ADMIN_PASSWORD, SUPERADMIN_PASSWORD, GROUP_CHAT_ID)
     bot_manager.run()
 
