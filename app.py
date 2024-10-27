@@ -389,8 +389,8 @@ TOKEN = os.environ.get("TELEGRAM_API_KEY")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASS")
 SUPERADMIN_PASSWORD = os.environ.get("SUPER_ADMIN_PASS")
 GROUP_CHAT_ID = os.environ.get("GROUP_CHAT_ID")
-bot_manager = BotManager(TOKEN, ADMIN_PASSWORD, SUPERADMIN_PASSWORD, GROUP_CHAT_ID)
+app = BotManager(TOKEN, ADMIN_PASSWORD, SUPERADMIN_PASSWORD, GROUP_CHAT_ID)
 
 if __name__ == '__main__':
-    bot_manager.run()
+    app.run()
 
